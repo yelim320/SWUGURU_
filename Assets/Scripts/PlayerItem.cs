@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerItem : MonoBehaviour
 {
-
+    
     //인벤토리
     private Inventory inventory;
 
