@@ -125,6 +125,7 @@ public class MomMove : MonoBehaviour
         print("하트 하나 감소");
     }
 
+
     IEnumerator Waiting()
     {
         yield return new WaitForSeconds(5f);
