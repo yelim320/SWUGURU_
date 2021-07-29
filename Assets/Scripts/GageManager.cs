@@ -5,31 +5,70 @@ using UnityEngine.UI;
 
 public class GageManager : MonoBehaviour
 {
-    private int currentScore;
-    public Text currentScoreUI;
 
-    //private int lastScore;
+    public Text stateLabel;
 
-    public static GageManager Instance = null;
-
-    public int Ragegage
+    public enum RageLevel
     {
-        get { return currentScore; }
-        set
-        {
-            currentScore = value;
-            currentScoreUI.text = "엄마분노단계 : " + currentScore;
-        }
+        level1, level2, level3, level4, Gameover
     }
+
+    public RageLevel RLevel;
+    public static int plevel;
+
+    public int firstLevel = 0;
+    private int currentLevel;
+
+    public Animator nextLevel;
+
+    public GameObject levelUp;
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        plevel = firstLevel;
     }
 
     void Start()
     {
-        //lastScore = PlayerPrefs.GetInt()
+    }
+
+    public int Getlevel()
+    {
+        return currentLevel;
+    }
+    public void Setlevel(int value)
+    {
+        currentLevel++;
+        gameObject.SetActive(false);
+        if (currentLevel == 1)
+        {
+            nextLevel.SetTrigger("");
+        }
+        if (currentLevel == 2)
+        {
+            nextLevel.SetTrigger("level2");
+        }
+        if (currentLevel == 3)
+        {
+            nextLevel.SetTrigger("level3");
+        }
+        if (currentLevel == 4)
+        {
+            nextLevel.SetTrigger("level4");
+        }
+
+        levelUp.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (currentLevel == 5)
+        {
+            nextLevel.SetTrigger("level5");
+            stateLabel.text = "Game Over...";
+            stateLabel.color = new Color32(255, 0, 0, 255);
+            Time.timeScale = 0;
+            RLevel = RageLevel.Gameover;
+        }
     }
 }
