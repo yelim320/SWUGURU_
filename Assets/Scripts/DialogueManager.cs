@@ -8,8 +8,10 @@ public class DialogueManager : MonoBehaviour
 
     public Text nameText;
     public Text dialogueText;
+    public Dialogue dialogue;
 
     public Animator animator;
+    public GameObject HowToPlay;
 
     private Queue<string> sentences;
 
@@ -17,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        StartCoroutine(WaitTime());
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -60,5 +63,12 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        HowToPlay.SetActive(true);
+    }
+
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(2f);
+        StartDialogue(dialogue);
     }
 }

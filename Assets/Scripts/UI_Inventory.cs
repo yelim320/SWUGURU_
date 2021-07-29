@@ -11,6 +11,8 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotTemplate;
     private GameObject player;
     private Vector3 itemDropPoint;
+    public GameObject table;
+    private float DisToTable;
 
     private void Awake()
     {
@@ -61,8 +63,49 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
             {
                 inventory.RemoveItem(item);
-                itemDropPoint = player.transform.position;
-                itemDropPoint.x += 2;
+                DisToTable = Vector3.Distance(player.transform.position, table.transform.position);
+                switch (item.itemType)
+                {
+                    case Items.ItemType.Watch:
+                        if (DisToTable < 3)
+                        {
+                            itemDropPoint = table.transform.position;
+                            itemDropPoint.y += 2;
+                        }
+                        else
+                        {
+                            itemDropPoint = player.transform.position;
+                            itemDropPoint.x += 2;
+                        }
+                        break;
+
+                    case Items.ItemType.DogSnack:
+                        if (DisToTable < 3)
+                        {
+                            itemDropPoint = table.transform.position;
+                            itemDropPoint.y += 2;
+                        }
+                        else
+                        {
+                            itemDropPoint = player.transform.position;
+                            itemDropPoint.x += 2;
+                        }
+                        break;
+
+                    default:
+                        if (DisToTable < 2)
+                        {
+                            itemDropPoint = table.transform.position;
+                        }
+                        else
+                        {
+                            Debug.Log(DisToTable);
+                            itemDropPoint = player.transform.position;
+                            itemDropPoint.x += 2;
+                        }
+                        break;
+                }
+                
                 ItemWorld.DropItem(itemDropPoint, item);
             };
 
