@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4548720631884217418}
   - component: {fileID: 4548720631884217419}
   - component: {fileID: 4548720631884217413}
+  - component: {fileID: 2318453773326294663}
   m_Layer: 0
   m_Name: refrigerator_open
   m_TagString: Untagged
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.4, y: 6.4}
   m_EdgeRadius: 0
+--- !u!114 &2318453773326294663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548720631884217415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be5d036381104e4dbd9d2234b891a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  re_Open: {fileID: 4548720632182424359}
+  player: {fileID: 0}
 --- !u!1 &4548720632182424359
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42e21c6a984aa74d88187114f4d1327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  re_open: {fileID: 4548720631884217415}
+  re_Open: {fileID: 4548720631884217415}
+  player: {fileID: 0}
 --- !u!61 &4548720632182424356
 BoxCollider2D:
   m_ObjectHideFlags: 0

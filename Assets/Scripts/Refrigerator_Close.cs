@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Refrigerator_Close : MonoBehaviour
 {
-    public GameObject re_Close;
+    public GameObject re_Open;
+    public Transform player;
+
 
     private void OnMouseDown()
     {
-        Debug.Log("마우스 클릭");
-        gameObject.SetActive(false);
-        re_Close.SetActive(true);
+        if (Vector3.Distance(player.position, transform.position) <= 3)
+        {
+            Debug.Log("마우스 클릭");
+            gameObject.SetActive(false);
+            re_Open.SetActive(true);
+        }
 
     }
 }
