@@ -5,31 +5,16 @@ using UnityEngine.UI;
 
 public class GageManager : MonoBehaviour
 {
-    private int currentScore;
-    public Text currentScoreUI;
+    public GameObject nextLevel;
+    public int currentLevel;
 
-    //private int lastScore;
-
-    public static GageManager Instance = null;
-
-    public int Ragegage
+    private void OnMouseDown()
     {
-        get { return currentScore; }
-        set
+        if (currentLevel == 1)
         {
-            currentScore = value;
-            currentScoreUI.text = "엄마분노단계 : " + currentScore;
+            gameObject.SetActive(false);
+            nextLevel.SetActive(true);
         }
-    }
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
-
-    void Start()
-    {
-        //lastScore = PlayerPrefs.GetInt()
     }
 }
