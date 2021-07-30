@@ -17,10 +17,15 @@ public class Stage2 : MonoBehaviour
     public GameObject textobject;
     private Text ClearText;
 
+    public GameObject momgage;
+    private Animator animator;
+    int gage = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         point = GameObject.Find("Point");
+        animator = momgage.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,6 +50,15 @@ public class Stage2 : MonoBehaviour
             {
                 print("실패");
                 //엄마 게이지 올라가기
+                gage++;
+                animator.SetTrigger("level" + gage);
+                if (gage == 5)
+                {
+                    animator.SetTrigger("level" + gage);
+                    textobject.SetActive(true);
+                    ClearText = textobject.GetComponentInChildren<Text>() as Text;
+                    ClearText.text = "GameOver";
+                }
             }
         }
     }
