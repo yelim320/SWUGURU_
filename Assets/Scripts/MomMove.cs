@@ -121,9 +121,9 @@ public class MomMove : MonoBehaviour
         player.transform.position = new Vector3(0, 0, 0);
         transform.position = Target2.transform.position;
         //하트감소UI
-        GameObject ggm = GameObject.Find("GageManager");
+        /*GameObject ggm = GameObject.Find("GageManager");
         GageManager gManager = ggm.GetComponent< GageManager > ();
-        gManager.Setlevel(gManager.Getlevel() + 1);
+        gManager.Setlevel(gManager.Getlevel() + 1);*/
 
         print("하트 하나 감소");
     }
