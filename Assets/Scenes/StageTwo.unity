@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &144612337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,6 @@ MonoBehaviour:
   nameText: {fileID: 144612338}
   dialogueText: {fileID: 1046821064}
   dialogue:
-    name: "\uB098\uC288\uB2C8"
     sentences:
     - "\uBC18\uC8FD\uC744 \uC644\uC131\uD588\uC73C\uB2C8 \uC774\uC81C \uBE75\uC744
       \uAD6C\uC6CC\uBCFC\uAE4C?"
