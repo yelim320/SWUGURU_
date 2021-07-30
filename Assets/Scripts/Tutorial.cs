@@ -22,7 +22,7 @@ public class Tutorial : MonoBehaviour
             {
                 textobject.SetActive(true);
                 ClearText = textobject.GetComponentInChildren<Text>() as Text;
-                ClearText.text = "첫 번째 퀘스트 성공!";
+                ClearText.text = "튜토리얼 성공!";
                 StartCoroutine(GoNextLevel());
             }
         }

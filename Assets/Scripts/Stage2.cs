@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Stage2 : MonoBehaviour
 {
@@ -9,9 +11,11 @@ public class Stage2 : MonoBehaviour
     public float successRange = 10f;
 
     public float t = 1f; // speed
-    public float l = 10f; // length from 0 to endpoint.
-    public float posX = 1f; // Offset
+    public float l = 10f; // 왕복거리
+    public float posX = 1f; // 중심
 
+    public GameObject textobject;
+    private Text ClearText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +35,23 @@ public class Stage2 : MonoBehaviour
 
             if(distanceToPoint <= successRange)
             {
-                print("성공");
+                //print("성공");
+                textobject.SetActive(true);
+                ClearText = textobject.GetComponentInChildren<Text>() as Text;
+                ClearText.text = "Stage2 성공!";
+                StartCoroutine(GoNextLevel());
             }
             else
             {
                 print("실패");
+                //엄마 게이지 올라가기
             }
         }
+    }
+
+    IEnumerator GoNextLevel()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(4);
     }
 }
