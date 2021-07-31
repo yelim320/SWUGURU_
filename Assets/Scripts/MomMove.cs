@@ -35,7 +35,7 @@ public class MomMove : MonoBehaviour
 
     public GameObject momgage;
     private Animator animator;
-    int gage = 0;
+    private int gage = 0;
 
     public GameObject textobject;
     private Text ClearText;
@@ -48,6 +48,8 @@ public class MomMove : MonoBehaviour
 
         //플레이어 
         player = GameObject.Find("Player");
+
+        animator = momgage.GetComponent<Animator>();
 
     }
 
@@ -160,15 +162,17 @@ public class MomMove : MonoBehaviour
         gManager.Setlevel(gManager.Getlevel() + 1);*/
 
         print("하트 하나 감소");
-        /*gage++;
+        gage++;
+        Debug.Log(gage);
         animator.SetTrigger("level" + gage);
+        Debug.Log("애니메이션 실행");
         if (gage == 5)
         {
             animator.SetTrigger("level" + gage);
             textobject.SetActive(true);
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
-        }*/
+        }
     }
 
 
