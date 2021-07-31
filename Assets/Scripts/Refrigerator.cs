@@ -5,6 +5,7 @@ using UnityEngine;
 public class Refrigerator : MonoBehaviour
 {
     public GameObject re_Open;
+    public GameObject item;
     public Transform player;
 
     private void OnMouseDown()
@@ -14,6 +15,7 @@ public class Refrigerator : MonoBehaviour
             Debug.Log("마우스 클릭");
             gameObject.SetActive(false);
             re_Open.SetActive(true);
+            item.SetActive(true);
         }
 
     }
