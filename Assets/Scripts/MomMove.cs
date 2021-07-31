@@ -16,7 +16,9 @@ public class MomMove : MonoBehaviour
 
     MomState momState;
 
-    GameObject player;
+    public GameObject player;
+    public GameObject door;
+    public GameObject door_Open;
 
     public Transform Target1;
     public Transform Target2;
@@ -47,7 +49,9 @@ public class MomMove : MonoBehaviour
         momState = MomState.Idle;
 
         //플레이어 
-        player = GameObject.Find("Player");
+        /*player = GameObject.Find("Player");
+        door = GameObject.Find("DoorToMom");
+        door_Open = GameObject.Find("DoorToMom_open");*/
 
         animator = momgage.GetComponent<Animator>();
 
@@ -95,6 +99,9 @@ public class MomMove : MonoBehaviour
 
     void Move()
     {
+        door.SetActive(false);
+        door_Open.SetActive(true);
+
         transform.position = Vector3.MoveTowards(transform.position, Target2.position, moveSpeed * Time.deltaTime);
          if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
          { 
@@ -124,6 +131,8 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(Target1.position, transform.position) == 0)
         {
+            door.SetActive(true);
+            door_Open.SetActive(false);
             print("Return > Idle");
             momState = MomState.Idle;
         }
@@ -173,6 +182,9 @@ public class MomMove : MonoBehaviour
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
         }
+
+        door.SetActive(true);
+        door_Open.SetActive(false);
     }
 
 
