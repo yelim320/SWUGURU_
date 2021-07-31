@@ -19,7 +19,6 @@ public class Stage2 : MonoBehaviour
 
     public GameObject momgage;
     private Animator animator;
-    int gage = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +49,10 @@ public class Stage2 : MonoBehaviour
             {
                 //print("실패");
                 //엄마 게이지 올라가기
-                gage++;
-                animator.SetTrigger("level" + gage);
-                if (gage == 5)
+                GageManager.gage++;
+
+                if (GageManager.gage == 5)
                 {
-                    animator.SetTrigger("level" + gage);
                     textobject.SetActive(true);
                     ClearText = textobject.GetComponentInChildren<Text>() as Text;
                     ClearText.text = "GameOver";
@@ -67,5 +65,10 @@ public class Stage2 : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(4);
+    }
+
+    public static int GageUp()
+    {
+        return GageManager.gage;
     }
 }

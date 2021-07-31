@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class GageManager : MonoBehaviour
 {
-    public GameObject nextLevel;
-    public int currentLevel;
+    private Animator animator;
+    public static int gage = 0;
 
-    private void OnMouseDown()
+    void Start()
     {
-        if (currentLevel == 1)
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        gage = MomMove.GageUp();
+        if (gage != 0)
         {
-            gameObject.SetActive(false);
-            nextLevel.SetActive(true);
+            animator.SetTrigger("level" + gage);
         }
 
     }

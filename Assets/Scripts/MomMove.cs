@@ -37,7 +37,6 @@ public class MomMove : MonoBehaviour
 
     public GameObject momgage;
     private Animator animator;
-    private int gage = 0;
 
     public GameObject textobject;
     private Text ClearText;
@@ -171,13 +170,12 @@ public class MomMove : MonoBehaviour
         gManager.Setlevel(gManager.Getlevel() + 1);*/
 
         print("하트 하나 감소");
-        gage++;
-        Debug.Log(gage);
-        animator.SetTrigger("level" + gage);
+        GageManager.gage++;
+        //Debug.Log(gage);
+        //animator.SetTrigger("level" + gage);
         Debug.Log("애니메이션 실행");
-        if (gage == 5)
+        if (GageManager.gage == 5)
         {
-            animator.SetTrigger("level" + gage);
             textobject.SetActive(true);
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
@@ -193,5 +191,8 @@ public class MomMove : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
-
+    public static int GageUp()
+    {
+        return GageManager.gage;
+    }
 }
