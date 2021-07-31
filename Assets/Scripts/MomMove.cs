@@ -10,6 +10,7 @@ public class MomMove : MonoBehaviour
         Idle,
         Move,
         Return,
+        Wait,
         Detect
     }
 
@@ -30,9 +31,11 @@ public class MomMove : MonoBehaviour
 
     public float MoveTime = 0.2f;
 
+    float WaitTime = 0.1f;
+
     public GameObject momgage;
     private Animator animator;
-    int gage = 0;
+    private int gage = 0;
 
     public GameObject textobject;
     private Text ClearText;
@@ -45,6 +48,8 @@ public class MomMove : MonoBehaviour
 
         //플레이어 
         player = GameObject.Find("Player");
+
+        animator = momgage.GetComponent<Animator>();
 
     }
 
@@ -63,6 +68,10 @@ public class MomMove : MonoBehaviour
 
             case MomState.Return:
                 Return();
+                break;
+
+            case MomState.Wait:
+                Wait();
                 break;
 
             case MomState.Detect:
@@ -86,23 +95,18 @@ public class MomMove : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Target1.position, moveSpeed * Time.deltaTime);
-        if(Vector3.Distance(Target1.position, transform.position) == 0)
+        transform.position = Vector3.MoveTowards(transform.position, Target2.position, moveSpeed * Time.deltaTime);
+         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
+         { 
+             momState = MomState.Detect;
+         }
+
+        if (Vector3.Distance(Target2.position, transform.position) == 0)
         {
-            StartCoroutine(Waiting());
-            if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
-            {
-
-                momState = MomState.Detect;
-            }
-
-            else
-            {
-                momState = MomState.Return;
-                print("무브에서 리턴");
-
-            }
+            momState = MomState.Wait;
+            print("Move > Wait");
         }
+        
 
     }
 
@@ -110,11 +114,37 @@ public class MomMove : MonoBehaviour
     {
         StartCoroutine(Waiting());
 
-        transform.position = Vector3.MoveTowards(transform.position, Target2.transform.position, moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(Target2.position, transform.position) == 0)
+        transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
-            print("리턴에서 아이들");
+            print("Return > Detect");
+            momState = MomState.Detect;
+        }
+
+        if (Vector3.Distance(Target1.position, transform.position) == 0)
+        {
+            print("Return > Idle");
             momState = MomState.Idle;
+        }
+
+    }
+
+    void Wait()
+    {
+        currentTime += Time.deltaTime;
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
+        {
+            print("Wait > Detect");
+            momState = MomState.Detect;
+        }
+
+        if (currentTime >= WaitTime)
+        {
+            print("Wait> Return");
+            momState = MomState.Return;
+            currentTime = 0;
         }
     }
 
@@ -123,9 +153,9 @@ public class MomMove : MonoBehaviour
         StartCoroutine(Waiting());
         //애니메이션
         momState = MomState.Idle;
-        print("무브에서 아이들");
+        print("디텍트에서 아이들");
         player.transform.position = new Vector3(0, 0, 0);
-        transform.position = Target2.transform.position;
+        transform.position = Target1.transform.position;
         //하트감소UI
         /*GameObject ggm = GameObject.Find("GageManager");
         GageManager gManager = ggm.GetComponent< GageManager > ();
@@ -133,7 +163,9 @@ public class MomMove : MonoBehaviour
 
         print("하트 하나 감소");
         gage++;
+        Debug.Log(gage);
         animator.SetTrigger("level" + gage);
+        Debug.Log("애니메이션 실행");
         if (gage == 5)
         {
             animator.SetTrigger("level" + gage);
@@ -148,5 +180,6 @@ public class MomMove : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
     }
+
 
 }
