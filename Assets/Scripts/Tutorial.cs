@@ -35,6 +35,6 @@ public class Tutorial : MonoBehaviour
     IEnumerator GoNextLevel()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
