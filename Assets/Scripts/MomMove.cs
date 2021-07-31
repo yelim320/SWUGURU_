@@ -31,6 +31,8 @@ public class MomMove : MonoBehaviour
 
     public float MoveTime = 0.2f;
 
+    float WaitTime = 0.1f;
+
     public GameObject momgage;
     private Animator animator;
     int gage = 0;
@@ -67,7 +69,7 @@ public class MomMove : MonoBehaviour
                 break;
 
             case MomState.Wait:
-                Return();
+                Wait();
                 break;
 
             case MomState.Detect:
@@ -91,38 +93,36 @@ public class MomMove : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Target1.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Target2.position, moveSpeed * Time.deltaTime);
+         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
+         { 
+             momState = MomState.Detect;
+         }
 
-        if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
-        {
-
-            momState = MomState.Detect;
-        }
-
-
-        if (Vector3.Distance(Target1.position, transform.position) == 0)
+        if (Vector3.Distance(Target2.position, transform.position) == 0)
         {
             momState = MomState.Wait;
-            print("무브에서 웨이트");
-
+            print("Move > Wait");
         }
+        
 
     }
 
     void Return()
     {
+        StartCoroutine(Waiting());
 
-        transform.position = Vector3.MoveTowards(transform.position, Target2.transform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
-            print("리턴에서 디텍트");
+            print("Return > Detect");
             momState = MomState.Detect;
         }
 
-        if (Vector3.Distance(Target2.position, transform.position) == 0)
+        if (Vector3.Distance(Target1.position, transform.position) == 0)
         {
-            print("리턴에서 아이들");
+            print("Return > Idle");
             momState = MomState.Idle;
         }
 
@@ -134,15 +134,15 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
-            print("웨이트에서 디텍트");
+            print("Wait > Detect");
             momState = MomState.Detect;
         }
 
-        if(currentTime == 5)
+        if (currentTime >= WaitTime)
         {
-            currentTime = 0;
-            print("웨이트에서 리턴");
+            print("Wait> Return");
             momState = MomState.Return;
+            currentTime = 0;
         }
     }
 
@@ -151,7 +151,7 @@ public class MomMove : MonoBehaviour
         StartCoroutine(Waiting());
         //애니메이션
         momState = MomState.Idle;
-        print("무브에서 아이들");
+        print("디텍트에서 아이들");
         player.transform.position = new Vector3(0, 0, 0);
         transform.position = Target1.transform.position;
         //하트감소UI
