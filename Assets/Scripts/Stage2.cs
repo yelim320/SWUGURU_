@@ -48,7 +48,7 @@ public class Stage2 : MonoBehaviour
             }
             else
             {
-                print("실패");
+                //print("실패");
                 //엄마 게이지 올라가기
                 gage++;
                 animator.SetTrigger("level" + gage);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MomMove : MonoBehaviour
 {
@@ -29,7 +30,12 @@ public class MomMove : MonoBehaviour
 
     public float MoveTime = 0.2f;
 
+    public GameObject momgage;
+    private Animator animator;
+    int gage = 0;
 
+    public GameObject textobject;
+    private Text ClearText;
 
 
     // Start is called before the first frame update
@@ -126,6 +132,15 @@ public class MomMove : MonoBehaviour
         gManager.Setlevel(gManager.Getlevel() + 1);*/
 
         print("하트 하나 감소");
+        gage++;
+        animator.SetTrigger("level" + gage);
+        if (gage == 5)
+        {
+            animator.SetTrigger("level" + gage);
+            textobject.SetActive(true);
+            ClearText = textobject.GetComponentInChildren<Text>() as Text;
+            ClearText.text = "GameOver";
+        }
     }
 
 

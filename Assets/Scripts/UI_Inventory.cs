@@ -14,11 +14,14 @@ public class UI_Inventory : MonoBehaviour
     public GameObject table;
     private float DisToTable;
 
+    private AudioSource putAudio;
+
     private void Awake()
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
         player = GameObject.Find("Player");
+        putAudio = GetComponent<AudioSource>();
     }
 
     public void SetInventory(Inventory inventory)
@@ -107,6 +110,8 @@ public class UI_Inventory : MonoBehaviour
                 }
                 
                 ItemWorld.DropItem(itemDropPoint, item);
+                putAudio.time = 0.75f;
+                putAudio.Play();
             };
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
