@@ -43,7 +43,7 @@ public class Stage2 : MonoBehaviour
                 //print("성공");
                 textobject.SetActive(true);
                 ClearText = textobject.GetComponentInChildren<Text>() as Text;
-                ClearText.text = "Stage2 성공!";
+                ClearText.text = "성공!";
                 StartCoroutine(GoNextLevel());
             }
             else

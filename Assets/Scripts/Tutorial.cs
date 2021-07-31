@@ -22,7 +22,7 @@ public class Tutorial : MonoBehaviour
             {
                 textobject.SetActive(true);
                 ClearText = textobject.GetComponentInChildren<Text>() as Text;
-                ClearText.text = "튜토리얼 성공!";
+                ClearText.text = "성공!";
                 StartCoroutine(GoNextLevel());
             }
         }
@@ -35,6 +35,6 @@ public class Tutorial : MonoBehaviour
     IEnumerator GoNextLevel()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
