@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3719523770911635592, guid: 4ce09333ff869704ba66d744bc68b351, type: 3}
       propertyPath: m_Name
-      value: Desk
+      value: Desk Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ce09333ff869704ba66d744bc68b351, type: 3}
