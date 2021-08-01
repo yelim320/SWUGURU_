@@ -5,35 +5,34 @@ using UnityEngine.UI;
 
 public class MomMove : MonoBehaviour
 {
-    enum MomState
+    public enum MomState
     {
         Idle,
         Move,
         Return,
         Wait,
-        Detect
+        Detect,
+        HitWatch
     }
 
-    MomState momState;
+    public static MomState momState;
 
     public GameObject player;
     public GameObject door;
     public GameObject door_Open;
 
+    public GameObject madMommy;
+    public GameObject drowsyMommy;
+
     public Transform Target1;
     public Transform Target2;
 
-
-
     public float findDistance = 2f;
-
     public float moveSpeed = 10;
-
-    float currentTime = 0;
-
     public float MoveTime = 0.2f;
 
-    float WaitTime = 0.1f;
+    float currentTime = 0;
+    float WaitTime = 5f;
 
     public GameObject momgage;
     private Animator animator;
@@ -41,14 +40,18 @@ public class MomMove : MonoBehaviour
     public GameObject textobject;
     private Text ClearText;
 
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         momState = MomState.Idle;
 
+        /*madMommy = GameObject.Find("madmommy");
+        drowsyMommy = GameObject.Find("drowsyMommy");
+
         //플레이어 
-        /*player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
         door = GameObject.Find("DoorToMom");
         door_Open = GameObject.Find("DoorToMom_open");*/
 
@@ -81,6 +84,10 @@ public class MomMove : MonoBehaviour
                 Detect();
                 break;
 
+            case MomState.HitWatch:
+                HitWatch();
+                break;
+
         }
     }
 
@@ -92,14 +99,13 @@ public class MomMove : MonoBehaviour
         {
             currentTime = 0;
             momState = MomState.Move;
-            print("Idle -> move");
         }
     }
 
     void Move()
     {
-        door.SetActive(false);
-        door_Open.SetActive(true);
+        //door.SetActive(false);
+        //door_Open.SetActive(true);
 
         transform.position = Vector3.MoveTowards(transform.position, Target2.position, moveSpeed * Time.deltaTime);
          if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
@@ -124,15 +130,13 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
-            print("Return > Detect");
             momState = MomState.Detect;
         }
 
         if (Vector3.Distance(Target1.position, transform.position) == 0)
         {
-            door.SetActive(true);
-            door_Open.SetActive(false);
-            print("Return > Idle");
+            //door.SetActive(true);
+            //door_Open.SetActive(false);
             momState = MomState.Idle;
         }
 
@@ -144,13 +148,11 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
-            print("Wait > Detect");
             momState = MomState.Detect;
         }
 
         if (currentTime >= WaitTime)
         {
-            print("Wait> Return");
             momState = MomState.Return;
             currentTime = 0;
         }
@@ -158,18 +160,16 @@ public class MomMove : MonoBehaviour
 
     void Detect()
     {
+        madMommy.SetActive(true);
         StartCoroutine(Waiting());
-        //애니메이션
-        momState = MomState.Idle;
-        print("디텍트에서 아이들");
         player.transform.position = new Vector3(0, 0, 0);
         transform.position = Target1.transform.position;
+
         //하트감소UI
         /*GameObject ggm = GameObject.Find("GageManager");
         GageManager gManager = ggm.GetComponent< GageManager > ();
         gManager.Setlevel(gManager.Getlevel() + 1);*/
 
-        print("하트 하나 감소");
         GageManager.gage++;
         //Debug.Log(gage);
         //animator.SetTrigger("level" + gage);
@@ -179,10 +179,30 @@ public class MomMove : MonoBehaviour
             textobject.SetActive(true);
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
+            textobject.SetActive(false);
+            gameOver.SetActive(true);
         }
 
-        door.SetActive(true);
-        door_Open.SetActive(false);
+        momState = MomState.Idle;
+        //door.SetActive(true);
+        //door_Open.SetActive(false);
+        madMommy.SetActive(false);
+    }
+
+    void HitWatch()
+    {
+        drowsyMommy.SetActive(true);
+        transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
+        {
+            //door.SetActive(true);
+            //door_Open.SetActive(false);
+            drowsyMommy.SetActive(false);
+            print("총맞음");
+            print("HitWat > Idle");
+            momState = MomState.Idle;
+        }
     }
 
 

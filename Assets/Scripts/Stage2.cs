@@ -20,6 +20,8 @@ public class Stage2 : MonoBehaviour
     public GameObject momgage;
     private Animator animator;
 
+    public GameObject gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class Stage2 : MonoBehaviour
                     textobject.SetActive(true);
                     ClearText = textobject.GetComponentInChildren<Text>() as Text;
                     ClearText.text = "GameOver";
+                    gameOver.SetActive(true);
                 }
             }
         }
