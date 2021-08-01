@@ -11,6 +11,8 @@ public class PlayerItem : MonoBehaviour
     [SerializeField] private UI_Inventory uiInventory;
 
     public GameObject dog;
+    public GameObject mom;
+
     private ItemWorld itemworld;
 
     private void Start()
@@ -46,7 +48,7 @@ public class PlayerItem : MonoBehaviour
             case Items.ItemType.Watch:
                 inventory.RemoveItem(item);
                 //inventory.RemoveItem(new Items { itemType = Items.ItemType.Watch, amount = 1 });
-                //엄마 함수 추가 예정
+                MomMove.momState = MomMove.MomState.HitWatch;
                 break;
 
             case Items.ItemType.DogSnack:
