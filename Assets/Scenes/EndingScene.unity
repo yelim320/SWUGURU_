@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106892043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.369566, y: 3.2608695, z: 0}
+  m_LocalPosition: {x: 17.369566, y: -1.07, z: 0}
   m_LocalScale: {x: 0.8695652, y: 0.8695652, z: 1}
   m_Children: []
   m_Father: {fileID: 1672603888}
@@ -1462,6 +1462,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5031761543761953118, guid: dcf6498e25a69d84d8f472486a864042, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6af5769fbae7ab4b9b3b19c79988e61, type: 3}
+    - target: {fileID: 5031761543761953118, guid: dcf6498e25a69d84d8f472486a864042, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -1642,7 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4098798199708242434, guid: 36e7be6df6365a7448206c4e2cedcc5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.826087
+      value: 13.19
       objectReference: {fileID: 0}
     - target: {fileID: 4098798199708242434, guid: 36e7be6df6365a7448206c4e2cedcc5f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4403,7 +4407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 866469934563642338, guid: 13d259361a9b5794281700a59139aea7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4347816
+      value: 6.67
       objectReference: {fileID: 0}
     - target: {fileID: 866469934563642338, guid: 13d259361a9b5794281700a59139aea7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4441,10 +4445,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1646191868186723193, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850696388389617697, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850696388389617697, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850696388389617697, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308074062917672666, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19fa3b45a43a4f94faa722ddbe49a446, type: 3}
     - target: {fileID: 3472306227377077084, guid: 13d259361a9b5794281700a59139aea7, type: 3}
       propertyPath: m_Name
       value: Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 4336949597483952768, guid: 13d259361a9b5794281700a59139aea7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8e5f39290e066e4894a6a11d96a5045, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d259361a9b5794281700a59139aea7, type: 3}
 --- !u!4 &1468419434 stripped
@@ -5833,7 +5861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029378613}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.565218, y: -1.3478261, z: 0}
+  m_LocalPosition: {x: -15.45, y: -0.17, z: -1.61}
   m_LocalScale: {x: 1.0869565, y: 1.0869565, z: 1}
   m_Children: []
   m_Father: {fileID: 1672603888}
@@ -5879,7 +5907,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 325ce756b9b5836449cd3c7d7a02c663, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 182d24fad8c8fef42a3cbe234b167dc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
