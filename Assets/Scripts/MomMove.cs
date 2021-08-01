@@ -40,6 +40,7 @@ public class MomMove : MonoBehaviour
     public GameObject textobject;
     private Text ClearText;
 
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -178,6 +179,8 @@ public class MomMove : MonoBehaviour
             textobject.SetActive(true);
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
+            textobject.SetActive(false);
+            gameOver.SetActive(true);
         }
 
         momState = MomState.Idle;
