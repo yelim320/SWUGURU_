@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed = 5;
     Animator anim;
+    static Vector3 playerPos;
 
     private void Start()
     {
@@ -31,5 +32,11 @@ public class PlayerMove : MonoBehaviour
         anim.SetFloat("InputY", v);
 
         transform.Translate(dir * speed * Time.deltaTime);
+        playerPos = transform.position;
+    }
+
+    void OnEnable()
+    {
+        transform.position = playerPos;
     }
 }
