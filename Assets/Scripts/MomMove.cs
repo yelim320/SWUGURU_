@@ -99,6 +99,8 @@ public class MomMove : MonoBehaviour
         {
             currentTime = 0;
             momState = MomState.Move;
+            madMommy.SetActive(false);
+            drowsyMommy.SetActive(false);
         }
     }
 
@@ -112,7 +114,7 @@ public class MomMove : MonoBehaviour
          {
             StartCoroutine(Waiting());
             momState = MomState.Detect;
-         }
+        }
 
         if (Vector3.Distance(Target2.position, transform.position) == 0)
         {
@@ -187,7 +189,7 @@ public class MomMove : MonoBehaviour
         momState = MomState.Idle;
         door.SetActive(true);
         door_Open.SetActive(false);
-        madMommy.SetActive(false);
+        
 
     }
 
@@ -200,7 +202,6 @@ public class MomMove : MonoBehaviour
         {
             //door.SetActive(true);
             //door_Open.SetActive(false);
-            //drowsyMommy.SetActive(false);
             print("ÃÑ¸ÂÀ½");
             print("HitWat > Idle");
             momState = MomState.Idle;

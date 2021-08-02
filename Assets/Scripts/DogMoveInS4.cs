@@ -8,6 +8,9 @@ public class DogMoveInS4 : MonoBehaviour
     public float l = 10f; // 왕복거리
     public float posX = -18f; // 중심
 
+    public GameObject guru_Target1;
+    public GameObject guru_Target2;
+
     public GameObject player;
     new Collider2D collider2D;
     float distanceToPlayer;
@@ -20,6 +23,7 @@ public class DogMoveInS4 : MonoBehaviour
     {
         Idle,
         Move,
+        Return,
         GetSnack
     }
 
@@ -43,6 +47,10 @@ public class DogMoveInS4 : MonoBehaviour
 
             case DogState.Move:
                 Move();
+                break;
+
+            case DogState.Return:
+                Return();
                 break;
 
             case DogState.GetSnack:
@@ -70,6 +78,7 @@ public class DogMoveInS4 : MonoBehaviour
     public void Move()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        transform.position = Vector3.MoveTowards(transform.position, guru_Target1.transform.position, t * Time.deltaTime);
 
         if (isTouching)
         {
@@ -78,14 +87,41 @@ public class DogMoveInS4 : MonoBehaviour
                 return;
             }
 
-            //Debug.Log("충돌감지");
+            //Debug.Log("감지");
 
             OnTriggerEnter2D(collider2D);
             return;
         }
 
-        Vector3 pos = new Vector3(posX + Mathf.PingPong(t * Time.time, l), 3.5f, -1);
-        transform.position = pos;
+        transform.position = Vector3.MoveTowards(transform.position, guru_Target1.transform.position, t * Time.deltaTime);
+        if(guru_Target1.transform.position == transform.position)
+        {
+            dogState = DogState.Return;
+        }
+    }
+
+    public void Return()
+    {
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        transform.position = Vector3.MoveTowards(transform.position, guru_Target2.transform.position, t * Time.deltaTime);
+
+        if (isTouching)
+        {
+            if (distanceToPlayer <= 5)
+            {
+                return;
+            }
+
+            //Debug.Log("감지");
+
+            OnTriggerEnter2D(collider2D);
+            return;
+        }
+
+        if (guru_Target2.transform.position == transform.position)
+        {
+            dogState = DogState.Move;
+        }
     }
 
     public void GetSnack()
@@ -110,7 +146,7 @@ public class DogMoveInS4 : MonoBehaviour
         isTouching = true;
         if (distanceToPlayer > 5)
         {
-            //Debug.Log("벗어남");
+            //Debug.Log("ㅇㅇ");
             isTouching = false;
             return;
         }
