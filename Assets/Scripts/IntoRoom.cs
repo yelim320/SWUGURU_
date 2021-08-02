@@ -15,7 +15,7 @@ public class IntoRoom : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("SWUNIE");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

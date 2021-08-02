@@ -6,11 +6,16 @@ public class Refrigerator : MonoBehaviour
 {
     public GameObject re_Open;
     public GameObject item;
-    public Transform player;
+    private Transform player;
+
+    private void Start()
+    {
+        player = GameObject.Find("SWUNIE").transform;
+    }
 
     private void OnMouseDown()
     {
-        if (Vector3.Distance(player.position, transform.position) <= 3)
+        if (Vector3.Distance(player.position, transform.position) <= 2)
         {
             Debug.Log("마우스 클릭");
             gameObject.SetActive(false);

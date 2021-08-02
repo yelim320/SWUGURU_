@@ -18,7 +18,7 @@ public class OutOfRoom : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("SWUNIE");
 
     }
 
@@ -28,7 +28,7 @@ public class OutOfRoom : MonoBehaviour
         //애니메이션 플레이
         transition.SetTrigger("Start");
         transition.SetTrigger("End");
-        player.transform.position = new Vector3(-7, -1, -1);
+        player.transform.position = new Vector3(-5, -3, -1);
         cam.transform.position = new Vector3(livingRoomPos.transform.position.x, livingRoomPos.transform.position.y, cam.transform.position.z);
     }
 
