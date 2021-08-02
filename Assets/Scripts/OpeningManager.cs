@@ -40,6 +40,6 @@ public class OpeningManager : MonoBehaviour
     public void OnMouseDown()
     {
         currentTime = 0;
-        SceneManager.LoadScene("StageOne");
+        SceneManager.LoadScene("Tutorial");
     }
 }
