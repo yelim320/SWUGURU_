@@ -27,7 +27,7 @@ public class OpeningManager : MonoBehaviour
                 scene2.SetActive(false);
                 scene3.SetActive(true);
 
-                if (currentTime >= 55)
+                if (currentTime >= 40)
                 {
                     scene3.SetActive(false);
                     scene4.SetActive(true);
@@ -37,9 +37,9 @@ public class OpeningManager : MonoBehaviour
 
     }
 
-    public void NextScene()
+    public void OnMouseDown()
     {
-        SceneManager.LoadScene("StageOne");
         currentTime = 0;
+        SceneManager.LoadScene("StageOne");
     }
 }
