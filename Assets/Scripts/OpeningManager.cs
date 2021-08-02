@@ -17,17 +17,17 @@ public class OpeningManager : MonoBehaviour
         currentTime += Time.deltaTime;
 
         scene1.SetActive(true);
-        if (currentTime >= 5)
+        if (currentTime >= 7)
         {
             scene1.SetActive(false);
             scene2.SetActive(true);
 
-            if (currentTime >= 15)
+            if (currentTime >= 32)
             {
                 scene2.SetActive(false);
                 scene3.SetActive(true);
 
-                if (currentTime >= 23)
+                if (currentTime >= 55)
                 {
                     scene3.SetActive(false);
                     scene4.SetActive(true);
