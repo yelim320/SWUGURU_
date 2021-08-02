@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class Stage1Ending : MonoBehaviour
+{
+    private int numOfItem;
+    public int clearcondition = 4;
+    public GameObject endingManager;
+    public GameObject textobject;
+    private Text ClearText;
+    public GameObject endingDialogue;
+    private AudioSource successAudio;
+    private GameObject player;
+    //public Transform livPos;
+    //public Transform kitPos;
+
+    void Awake()
+    {
+        successAudio = GetComponent<AudioSource>();
+        player = GameObject.Find("Player");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        int layer = collider.gameObject.layer;
+        if (layer == 9)
+        {
+            numOfItem++;
+            Debug.Log(numOfItem);
+            if (numOfItem == clearcondition)
+            {
+                textobject.SetActive(true);
+                ClearText = textobject.GetComponentInChildren<Text>() as Text;
+                ClearText.text = "¼º°ø!";
+                successAudio.Play();
+                textobject.SetActive(true);
+                endingManager.SetActive(true);
+                StartCoroutine(MoveToKitchen());
+                StartCoroutine(GoNextLevel());
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    IEnumerator MoveToKitchen()
+    {
+        //player.transform.position = new Vector3();
+        yield return new WaitForSeconds(1f);
+        endingDialogue.SetActive(false);
+        //player.transform.position = Vector3.MoveTowards(player.transform.position, livPos.position, 5 * Time.deltaTime);
+        /*if(Vector3.Distance(player.transform.position, livPos.position) < 0.1f)
+        {
+            player.transform.position = Vector3.MoveTowards(player.transform.position, kitPos.position, 5 * Time.deltaTime);
+        }*/
+    }
+
+    IEnumerator GoNextLevel()
+    {
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+}

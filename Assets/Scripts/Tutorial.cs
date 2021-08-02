@@ -10,6 +10,12 @@ public class Tutorial : MonoBehaviour
     public int clearcondition = 5;
     public GameObject textobject;
     private Text ClearText;
+    private AudioSource successAudio;
+
+    void Awake()
+    {
+        successAudio = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -23,6 +29,7 @@ public class Tutorial : MonoBehaviour
                 textobject.SetActive(true);
                 ClearText = textobject.GetComponentInChildren<Text>() as Text;
                 ClearText.text = "¼º°ø!";
+                successAudio.Play();
                 StartCoroutine(GoNextLevel());
             }
         }
@@ -34,7 +41,7 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator GoNextLevel()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
