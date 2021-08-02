@@ -20,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         StartCoroutine(WaitTime());
+        PlayerMove.cantControl = true;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -64,6 +65,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         HowToPlay.SetActive(true);
+        PlayerMove.cantControl = false;
     }
 
     IEnumerator WaitTime()
