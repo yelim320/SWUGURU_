@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndingDialogueInStage1 : MonoBehaviour
+public class EndingDialogue : MonoBehaviour
 {
     public Text dialogueText;
     public Dialogue dialogue;
-
     public Animator animator;
+    public GameObject EndImage;
 
     private Queue<string> sentences;
 
@@ -16,12 +16,12 @@ public class EndingDialogueInStage1 : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        StartCoroutine(WaitTime());
+        StartDialogue(dialogue);
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        animator.SetTrigger("Ending");
+        animator.SetBool("IsOpen", true);
 
         sentences.Clear();
 
@@ -35,13 +35,13 @@ public class EndingDialogueInStage1 : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        
+
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-        
+
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -56,15 +56,10 @@ public class EndingDialogueInStage1 : MonoBehaviour
             yield return null;
         }
     }
-    
+
     void EndDialogue()
     {
-        animator.SetBool("Ending", false);
-    }
-    
-    IEnumerator WaitTime()
-    {
-        yield return new WaitForSeconds(2f);
-        StartDialogue(dialogue);
+        animator.SetBool("IsOpen", false);
+        EndImage.SetActive(true);
     }
 }
