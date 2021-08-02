@@ -14,13 +14,25 @@ public class Stage1Ending : MonoBehaviour
     public GameObject endingDialogue;
     private AudioSource successAudio;
     private GameObject player;
-    //public Transform livPos;
-    //public Transform kitPos;
+    public Transform livPos;
+    public Transform kitPos;
+    private bool clearStage1 = false;
 
     void Awake()
     {
         successAudio = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
+    }
+
+    void Update()
+    {
+        if (clearStage1)
+        {
+            endingDialogue.SetActive(false);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, livPos.position, 5 * Time.deltaTime);
+            StartCoroutine(MoveToKit());
+            StartCoroutine(GoNextLevel());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -38,8 +50,7 @@ public class Stage1Ending : MonoBehaviour
                 successAudio.Play();
                 textobject.SetActive(true);
                 endingManager.SetActive(true);
-                StartCoroutine(MoveToKitchen());
-                StartCoroutine(GoNextLevel());
+                StartCoroutine(MoveToLiv());
             }
         }
         else
@@ -48,21 +59,23 @@ public class Stage1Ending : MonoBehaviour
         }
     }
 
-    IEnumerator MoveToKitchen()
+    IEnumerator MoveToLiv()
     {
-        //player.transform.position = new Vector3();
-        yield return new WaitForSeconds(1f);
-        endingDialogue.SetActive(false);
-        //player.transform.position = Vector3.MoveTowards(player.transform.position, livPos.position, 5 * Time.deltaTime);
-        /*if(Vector3.Distance(player.transform.position, livPos.position) < 0.1f)
-        {
-            player.transform.position = Vector3.MoveTowards(player.transform.position, kitPos.position, 5 * Time.deltaTime);
-        }*/
+        PlayerMove.cantControl = true;
+        yield return new WaitForSeconds(4f);
+        clearStage1 = true;
+        player.transform.position = new Vector3(4, -3, -1);
+    }
+
+    IEnumerator MoveToKit()
+    {
+        yield return new WaitForSeconds(2f);
+        player.transform.position = Vector3.MoveTowards(player.transform.position, kitPos.position, 10 * Time.deltaTime);
     }
 
     IEnumerator GoNextLevel()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

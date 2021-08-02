@@ -8,6 +8,8 @@ public class PlayerMove : MonoBehaviour
     Animator anim;
     static Vector3 playerPos;
 
+    public static bool cantControl = false;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -16,6 +18,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (cantControl)
+        {
+            playerPos = transform.position;
+            return;
+        }
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -38,5 +46,6 @@ public class PlayerMove : MonoBehaviour
     void OnEnable()
     {
         transform.position = playerPos;
+        cantControl = false;
     }
 }

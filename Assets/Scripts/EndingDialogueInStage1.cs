@@ -21,9 +21,9 @@ public class EndingDialogueInStage1 : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        animator.SetBool("IsOpen", true);
+        animator.SetTrigger("Ending");
+        Debug.Log("애니메이션");
 
-        //nameText.text = dialogue.name;
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -36,12 +36,13 @@ public class EndingDialogueInStage1 : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-
+        
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -56,12 +57,12 @@ public class EndingDialogueInStage1 : MonoBehaviour
             yield return null;
         }
     }
-
+    
     void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        animator.SetBool("Ending", false);
     }
-
+    
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(2f);
