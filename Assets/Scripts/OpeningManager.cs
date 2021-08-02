@@ -27,7 +27,7 @@ public class OpeningManager : MonoBehaviour
                 scene2.SetActive(false);
                 scene3.SetActive(true);
 
-                if (currentTime >= 40)
+                if (currentTime >= 42)
                 {
                     scene3.SetActive(false);
                     scene4.SetActive(true);
