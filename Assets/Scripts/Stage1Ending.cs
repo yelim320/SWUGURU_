@@ -64,7 +64,7 @@ public class Stage1Ending : MonoBehaviour
         PlayerMove.cantControl = true;
         yield return new WaitForSeconds(4f);
         clearStage1 = true;
-        player.transform.position = new Vector3(4, -3, -1);
+        player.transform.position = new Vector3(-4, -3.5f, -1);
     }
 
     IEnumerator MoveToKit()
