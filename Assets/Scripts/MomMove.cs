@@ -29,7 +29,7 @@ public class MomMove : MonoBehaviour
 
     public float findDistance = 2f;
     public float moveSpeed = 10;
-    public float MoveTime = 0.2f;
+    public float MoveTime = 0.15f;
 
     float currentTime = 0;
     float WaitTime = 5f;
@@ -104,13 +104,14 @@ public class MomMove : MonoBehaviour
 
     void Move()
     {
-        //door.SetActive(false);
-        //door_Open.SetActive(true);
+        door.SetActive(false);
+        door_Open.SetActive(true);
 
         transform.position = Vector3.MoveTowards(transform.position, Target2.position, moveSpeed * Time.deltaTime);
          if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
-         { 
-             momState = MomState.Detect;
+         {
+            StartCoroutine(Waiting());
+            momState = MomState.Detect;
          }
 
         if (Vector3.Distance(Target2.position, transform.position) == 0)
@@ -130,13 +131,14 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
+            StartCoroutine(Waiting());
             momState = MomState.Detect;
         }
 
         if (Vector3.Distance(Target1.position, transform.position) == 0)
         {
-            //door.SetActive(true);
-            //door_Open.SetActive(false);
+            door.SetActive(true);
+            door_Open.SetActive(false);
             momState = MomState.Idle;
         }
 
@@ -148,6 +150,7 @@ public class MomMove : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
         {
+            StartCoroutine(Waiting());
             momState = MomState.Detect;
         }
 
@@ -161,9 +164,6 @@ public class MomMove : MonoBehaviour
     void Detect()
     {
         madMommy.SetActive(true);
-        StartCoroutine(Waiting());
-        player.transform.position = new Vector3(0, 0, 0);
-        transform.position = Target1.transform.position;
 
         //하트감소UI
         /*GameObject ggm = GameObject.Find("GageManager");
@@ -183,10 +183,12 @@ public class MomMove : MonoBehaviour
             gameOver.SetActive(true);
         }
 
+
         momState = MomState.Idle;
-        //door.SetActive(true);
-        //door_Open.SetActive(false);
+        door.SetActive(true);
+        door_Open.SetActive(false);
         madMommy.SetActive(false);
+
     }
 
     void HitWatch()
@@ -198,7 +200,7 @@ public class MomMove : MonoBehaviour
         {
             //door.SetActive(true);
             //door_Open.SetActive(false);
-            drowsyMommy.SetActive(false);
+            //drowsyMommy.SetActive(false);
             print("총맞음");
             print("HitWat > Idle");
             momState = MomState.Idle;
@@ -209,6 +211,8 @@ public class MomMove : MonoBehaviour
     IEnumerator Waiting()
     {
         yield return new WaitForSeconds(5f);
+        player.transform.position = new Vector3(0, 0, 0);
+        transform.position = Target1.transform.position;
     }
 
     public static int GageUp()
