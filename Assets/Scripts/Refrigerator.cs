@@ -10,7 +10,7 @@ public class Refrigerator : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("SWUNIE").transform;
+        player = GameObject.Find("Player").transform;
     }
 
     private void OnMouseDown()
