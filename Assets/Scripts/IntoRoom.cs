@@ -23,7 +23,8 @@ public class IntoRoom : MonoBehaviour
         print("Ãæµ¹");
         transition.SetTrigger("Start");
         transition.SetTrigger("End");
-        player.transform.position = new Vector3(-8, -3, -1);
+        player.transform.position = new Vector3(-7, -3, -1);
         cam.transform.position = new Vector3(myRoomPos.transform.position.x, myRoomPos.transform.position.y, cam.transform.position.z);
+
     }
 }

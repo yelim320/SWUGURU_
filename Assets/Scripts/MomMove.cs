@@ -135,8 +135,6 @@ public class MomMove : MonoBehaviour
 
     void Return()
     {
-        StartCoroutine(Waiting());
-
         transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
@@ -219,9 +217,10 @@ public class MomMove : MonoBehaviour
 
     IEnumerator Waiting()
     {
+        Debug.Log("½ÃÀÛ");
         yield return new WaitForSeconds(5f);
         transform.position = Target1.transform.position;
-        player.transform.position = new Vector3(-8, -3, -1);
+        player.transform.position = new Vector3(-7, -3, -1);
         cam.transform.position = new Vector3(room.transform.position.x, room.transform.position.y, cam.transform.position.z);
     }
 
