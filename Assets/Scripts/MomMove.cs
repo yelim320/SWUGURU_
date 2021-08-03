@@ -90,8 +90,6 @@ public class MomMove : MonoBehaviour
         {
             currentTime = 0;
             momState = MomState.Move;
-            madMommy.SetActive(false);
-            drowsyMommy.SetActive(false);
         }
     }
 
@@ -206,6 +204,8 @@ public class MomMove : MonoBehaviour
         player.transform.position = new Vector3(-7, -3, -1);
         cam.transform.position = new Vector3(room.transform.position.x, room.transform.position.y, cam.transform.position.z);
         PlayerMove.cantControl = false;
+        madMommy.SetActive(false);
+        drowsyMommy.SetActive(false);
     }
 
     public static int GageUp()
