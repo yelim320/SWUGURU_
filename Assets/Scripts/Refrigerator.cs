@@ -13,6 +13,7 @@ public class Refrigerator : MonoBehaviour
     private GameObject player;
     private Inventory inventory;
     private ItemWorld itemworld;
+    //private int count = 0;
 
     private void Start()
     {
@@ -25,10 +26,17 @@ public class Refrigerator : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) <= 2)
         {
+            //count++;
             Debug.Log("마우스 클릭");
             gameObject.SetActive(false);
             re_Open.SetActive(true);
-            item.SetActive(true);
+           /* if(count > 1)
+            {
+                item.SetActive(false);
+            }
+            else*/
+                item.SetActive(true);
+
 
             /*if(inventory.itemList.Count == 5)
             {
