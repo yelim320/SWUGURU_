@@ -18,6 +18,12 @@ public class Stage1Ending : MonoBehaviour
     public Transform kitPos;
     private bool clearStage1 = false;
 
+    public GameObject table;
+    public GameObject equip;
+    public GameObject making;
+    public GameObject bowlwith;
+    //public AudioSource makingSound;
+
     void Awake()
     {
         successAudio = GetComponent<AudioSource>();
@@ -29,6 +35,7 @@ public class Stage1Ending : MonoBehaviour
         if (clearStage1)
         {
             endingDialogue.SetActive(false);
+            bowlwith.transform.position = player.transform.position;
             player.transform.position = Vector3.MoveTowards(player.transform.position, livPos.position, 5 * Time.deltaTime);
             StartCoroutine(MoveToKit());
             StartCoroutine(GoNextLevel());
@@ -41,7 +48,7 @@ public class Stage1Ending : MonoBehaviour
         if (layer == 9)
         {
             numOfItem++;
-            Debug.Log(numOfItem);
+            //Debug.Log(numOfItem);
             if (numOfItem == clearcondition)
             {
                 textobject.SetActive(true);
@@ -49,8 +56,9 @@ public class Stage1Ending : MonoBehaviour
                 ClearText.text = "¼º°ø!";
                 successAudio.Play();
                 textobject.SetActive(true);
-                endingManager.SetActive(true);
-                StartCoroutine(MoveToLiv());
+                StartCoroutine(makingDough());
+                StartCoroutine(completeDough());
+                StartCoroutine(ReadyToGo());
             }
         }
         else
@@ -59,10 +67,27 @@ public class Stage1Ending : MonoBehaviour
         }
     }
 
-    IEnumerator MoveToLiv()
+    IEnumerator makingDough()
+    {
+        yield return new WaitForSeconds(1.9f);
+        equip.SetActive(false);
+        table.SetActive(true);
+        making.SetActive(true);
+        //makingSound.Play();
+    }
+
+    IEnumerator completeDough()
+    {
+        yield return new WaitForSeconds(5f);
+        making.SetActive(false);
+        bowlwith.SetActive(true);
+        endingManager.SetActive(true);
+    }
+
+    IEnumerator ReadyToGo()
     {
         PlayerMove.cantControl = true;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(10f);
         clearStage1 = true;
         player.transform.position = new Vector3(-4, -3.5f, -1);
     }

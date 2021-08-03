@@ -1312,6 +1312,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 19.53
       objectReference: {fileID: 0}
+    - target: {fileID: 5551627878848725658, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5551627879335036187, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56
@@ -4171,8 +4175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3801c0f0b551e4e983be41e39dfb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  myRoomPos: {fileID: 0}
+  cam: {fileID: 1904212625}
+  myRoomPos: {fileID: 2069323303}
   transition: {fileID: 1239273913}
 --- !u!61 &1815424109
 BoxCollider2D:
@@ -5150,6 +5154,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2069323303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1827762488652295185, guid: dabdf51273e124547aabbb22fd7bc2e5, type: 3}
+  m_PrefabInstance: {fileID: 199450208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2085002947
 GameObject:
   m_ObjectHideFlags: 0
