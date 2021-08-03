@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Stage3Ending : MonoBehaviour
 {
-    private int numOfItem;
+    private int numOfItem = 0;
     public int clearcondition = 4;
     public GameObject textobject;
     private Text ClearText;
     private AudioSource successAudio;
-    private bool clearStage1 = false;
+    private bool clearStage3 = false;
 
     public GameObject table;
     //public GameObject equip;
@@ -25,7 +25,7 @@ public class Stage3Ending : MonoBehaviour
 
     void Update()
     {
-        if (clearStage1)
+        if (clearStage3)
         {
             StartCoroutine(GoNextLevel());
         }
@@ -37,7 +37,6 @@ public class Stage3Ending : MonoBehaviour
         if (layer == 9)
         {
             numOfItem++;
-            //Debug.Log(numOfItem);
             if (numOfItem == clearcondition)
             {
                 textobject.SetActive(true);
@@ -46,7 +45,6 @@ public class Stage3Ending : MonoBehaviour
                 successAudio.Play();
                 textobject.SetActive(true);
                 StartCoroutine(makingCake());
-                StartCoroutine(completeCake());
             }
         }
         else
@@ -62,12 +60,7 @@ public class Stage3Ending : MonoBehaviour
         table.SetActive(true);
         decorating.SetActive(true);
         //makingSound.Play();
-    }
-
-    IEnumerator completeCake()
-    {
-        yield return new WaitForSeconds(5f);
-        decorating.SetActive(false);
+        clearStage3 = true;
     }
 
     IEnumerator GoNextLevel()
