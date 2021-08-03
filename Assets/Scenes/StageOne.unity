@@ -4675,10 +4675,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5551627877623661361, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551627877623661361, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5551627877825749088, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5551627877832021250, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 1452807312}
     - target: {fileID: 5551627878123111052, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_Name
       value: LFloor
