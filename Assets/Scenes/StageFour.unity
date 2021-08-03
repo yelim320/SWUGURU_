@@ -2963,6 +2963,8 @@ MonoBehaviour:
   momgage: {fileID: 218388450}
   textobject: {fileID: 37668064}
   gameOver: {fileID: 925272206}
+  cam: {fileID: 1904212625}
+  room: {fileID: 2069323303}
 --- !u!61 &1118973973
 BoxCollider2D:
   m_ObjectHideFlags: 0
