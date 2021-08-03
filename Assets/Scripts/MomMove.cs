@@ -45,15 +45,12 @@ public class MomMove : MonoBehaviour
     public GameObject cam;
     public GameObject room;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         momState = MomState.Idle;
         animator = momgage.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (momState)
@@ -190,10 +187,10 @@ public class MomMove : MonoBehaviour
         drowsyMommy.SetActive(true);
         transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
+        if (Vector3.Distance(Target1.position, transform.position) == 0)
         {
-            //door.SetActive(true);
-            //door_Open.SetActive(false);
+            door.SetActive(true);
+            door_Open.SetActive(false);
             print("√—∏¬¿Ω");
             print("HitWat > Idle");
             momState = MomState.Idle;
@@ -203,11 +200,12 @@ public class MomMove : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        Debug.Log("Ω√¿€");
+        PlayerMove.cantControl = true;
         yield return new WaitForSeconds(5f);
         transform.position = Target1.transform.position;
         player.transform.position = new Vector3(-7, -3, -1);
         cam.transform.position = new Vector3(room.transform.position.x, room.transform.position.y, cam.transform.position.z);
+        PlayerMove.cantControl = false;
     }
 
     public static int GageUp()
