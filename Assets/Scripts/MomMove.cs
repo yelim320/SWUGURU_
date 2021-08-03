@@ -42,29 +42,15 @@ public class MomMove : MonoBehaviour
 
     public GameObject gameOver;
 
-    IntoRoom intoRoom;
-    private GameObject cam;
-    private GameObject room;
+    public GameObject cam;
+    public GameObject room;
 
 
     // Start is called before the first frame update
     void Start()
     {
         momState = MomState.Idle;
-
-        /*madMommy = GameObject.Find("madmommy");
-        drowsyMommy = GameObject.Find("drowsyMommy");
-
-        //플레이어 
-        player = GameObject.Find("Player");
-        door = GameObject.Find("DoorToMom");
-        door_Open = GameObject.Find("DoorToMom_open");*/
-
         animator = momgage.GetComponent<Animator>();
-
-        cam = GameObject.Find("Main Camera");
-        room = GameObject.Find("BG_SWUROOM");
-
     }
 
     // Update is called once per frame
