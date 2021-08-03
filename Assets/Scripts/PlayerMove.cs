@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (cantControl)
         {
+            anim.SetBool("isMove", false);
             playerPos = transform.position;
             return;
         }
