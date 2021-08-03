@@ -15,7 +15,7 @@ public class IntoRoom : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("SWUNIE");
+        player = GameObject.Find("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,8 +23,7 @@ public class IntoRoom : MonoBehaviour
         print("Ãæµ¹");
         transition.SetTrigger("Start");
         transition.SetTrigger("End");
-        player.transform.position = new Vector3(-3, -1, -1);
+        player.transform.position = new Vector3(-8, -3, -1);
         cam.transform.position = new Vector3(myRoomPos.transform.position.x, myRoomPos.transform.position.y, cam.transform.position.z);
     }
-
 }

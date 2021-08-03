@@ -42,6 +42,11 @@ public class MomMove : MonoBehaviour
 
     public GameObject gameOver;
 
+    IntoRoom intoRoom;
+    private GameObject cam;
+    private GameObject room;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +61,9 @@ public class MomMove : MonoBehaviour
         door_Open = GameObject.Find("DoorToMom_open");*/
 
         animator = momgage.GetComponent<Animator>();
+
+        cam = GameObject.Find("Main Camera");
+        room = GameObject.Find("BG_SWUROOM");
 
     }
 
@@ -212,8 +220,9 @@ public class MomMove : MonoBehaviour
     IEnumerator Waiting()
     {
         yield return new WaitForSeconds(5f);
-        player.transform.position = new Vector3(0, 0, 0);
         transform.position = Target1.transform.position;
+        player.transform.position = new Vector3(-8, -3, -1);
+        cam.transform.position = new Vector3(room.transform.position.x, room.transform.position.y, cam.transform.position.z);
     }
 
     public static int GageUp()
