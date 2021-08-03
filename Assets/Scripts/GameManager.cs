@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         player = GameObject.Find("Player");
-        player.transform.position = new Vector3(-2.5f, 1.5f, -1);
+        player.transform.position = PlayerMove.playerPos;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

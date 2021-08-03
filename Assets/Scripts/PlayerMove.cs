@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed = 5;
     Animator anim;
-    static Vector3 playerPos;
+    public static Vector3 playerPos;
 
     public static bool cantControl = false;
 
