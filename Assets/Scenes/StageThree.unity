@@ -1467,8 +1467,8 @@ MonoBehaviour:
   moveSpeed: 5
   MoveTime: 10
   momgage: {fileID: 0}
-  textobject: {fileID: 0}
-  gameOver: {fileID: 0}
+  textobject: {fileID: 1469655949115983578}
+  gameOver: {fileID: 1469655950684019830}
   cam: {fileID: 961294412}
   room: {fileID: 1827762488250032553}
 --- !u!61 &1461271263
