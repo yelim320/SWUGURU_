@@ -8062,7 +8062,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3486561034666784256}
   - component: {fileID: 4336949596800587538}
-  - component: {fileID: 6921766650906558402}
   m_Layer: 0
   m_Name: closet-1
   m_TagString: Untagged
@@ -8106,19 +8105,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &584223724074451481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646191868863020779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be5d036381104e4dbd9d2234b891a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  re_Open: {fileID: 73845017926080556}
 --- !u!4 &866469935514629744
 Transform:
   m_ObjectHideFlags: 0
@@ -8177,7 +8163,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2850696386916957619}
   - component: {fileID: 3308074061698655048}
-  - component: {fileID: 584223724074451481}
   m_Layer: 0
   m_Name: closet(open)-1 1
   m_TagString: Untagged
@@ -13970,21 +13955,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96dc402d6c716194abaab2231caf684c, type: 3}
---- !u!114 &6921766650906558402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73845017926080556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42e21c6a984aa74d88187114f4d1327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  re_Open: {fileID: 1646191868863020779}
-  item: {fileID: 0}
-  sound: {fileID: 0}
 --- !u!4 &8342776427315985457
 Transform:
   m_ObjectHideFlags: 0
