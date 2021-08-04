@@ -113,6 +113,7 @@ public class MomMove : MonoBehaviour
 
     void Return()
     {
+        currentTime = 0;
         transform.position = Vector3.MoveTowards(transform.position, Target1.transform.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(player.transform.position, transform.position) <= findDistance)
@@ -143,7 +144,6 @@ public class MomMove : MonoBehaviour
         if (currentTime >= WaitTime)
         {
             momState = MomState.Return;
-            currentTime = 0;
         }
     }
 
