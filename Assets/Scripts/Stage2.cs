@@ -21,6 +21,8 @@ public class Stage2 : MonoBehaviour
     private Animator animator;
 
     public GameObject gameOver;
+    public GameObject success;
+    public GameObject failure;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class Stage2 : MonoBehaviour
             {
                 //print("성공");
                 textobject.SetActive(true);
+                success.SetActive(true);
                 ClearText = textobject.GetComponentInChildren<Text>() as Text;
                 ClearText.text = "성공!";
                 StartCoroutine(GoNextLevel());
@@ -51,6 +54,7 @@ public class Stage2 : MonoBehaviour
             {
                 //print("실패");
                 //엄마 게이지 올라가기
+                failure.SetActive(true);
                 GageManager.gage++;
 
                 if (GageManager.gage == 5)

@@ -19,6 +19,8 @@ public class DogMoveInS4 : MonoBehaviour
     private AudioSource bowWow;
 
     public GameObject doghouse;
+    public GameObject dogInHouse;
+
     public enum DogState
     {
         Idle,
@@ -29,11 +31,14 @@ public class DogMoveInS4 : MonoBehaviour
 
     public static DogState dogState;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         dogState = DogState.Move;
         bowWow = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -77,6 +82,7 @@ public class DogMoveInS4 : MonoBehaviour
 
     public void Move()
     {
+        animator.SetTrigger("Turn_R");
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         transform.position = Vector3.MoveTowards(transform.position, guru_Target1.transform.position, t * Time.deltaTime);
 
@@ -96,12 +102,14 @@ public class DogMoveInS4 : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, guru_Target1.transform.position, t * Time.deltaTime);
         if(guru_Target1.transform.position == transform.position)
         {
+            animator.ResetTrigger("Turn_R");
             dogState = DogState.Return;
         }
     }
 
     public void Return()
     {
+        animator.SetTrigger("Turn_L");
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         transform.position = Vector3.MoveTowards(transform.position, guru_Target2.transform.position, t * Time.deltaTime);
 
@@ -120,12 +128,15 @@ public class DogMoveInS4 : MonoBehaviour
 
         if (guru_Target2.transform.position == transform.position)
         {
+            animator.ResetTrigger("Turn_L");
             dogState = DogState.Move;
         }
     }
 
     public void GetSnack()
     {
+        animator.ResetTrigger("Turn_R");
+        animator.SetTrigger("Turn_L");
         float disToDoghouse = Vector3.Distance(transform.position, doghouse.transform.position);
 
         if (disToDoghouse > 0.1)
@@ -137,6 +148,8 @@ public class DogMoveInS4 : MonoBehaviour
         else
         {
             transform.position = doghouse.transform.position;
+            dogInHouse.SetActive(true);
+            gameObject.SetActive(false);
             return;
         }
     }
