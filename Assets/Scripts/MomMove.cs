@@ -155,10 +155,10 @@ public class MomMove : MonoBehaviour
         Debug.Log("애니메이션 실행");
         if (GageManager.gage == 5)
         {
-            textobject.SetActive(true);
+            /*textobject.SetActive(true);
             ClearText = textobject.GetComponentInChildren<Text>() as Text;
             ClearText.text = "GameOver";
-            textobject.SetActive(false);
+            textobject.SetActive(false);*/
             gameOver.SetActive(true);
         }
 
