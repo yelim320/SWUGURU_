@@ -1,4 +1,7 @@
 ﻿/* 
+ 본 스크립트는 다운받아 사용한 스크립트로, 직접 작성하지 않았습니다.
+ -서울여자대학교 구루1 유니티 '케이크에이전트'조  
+  
     ------------------- Code Monkey -------------------
 
     Thank you for downloading the Code Monkey Utilities
