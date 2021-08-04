@@ -143,10 +143,15 @@ public class DogMoveInS4 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        int layer = collider.gameObject.layer;
+        if (layer != 7)
+        {
+            return;
+        }
+
         isTouching = true;
         if (distanceToPlayer > 5)
         {
-            //Debug.Log("¤·¤·");
             isTouching = false;
             return;
         }
