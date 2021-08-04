@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class EndingManager : MonoBehaviour
 {
-    public void GameRestart()
+    void Start()
     {
         GageManager.gage = 0;
         GageManager.animator.SetTrigger("GameOver");
+    }
+
+    public void GameRestart()
+    {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
