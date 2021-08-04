@@ -29,9 +29,10 @@ public class Refrigerator : MonoBehaviour
         {
             //count++;
             Debug.Log("마우스 클릭");
+            sound.SetActive(true);
             gameObject.SetActive(false);
             re_Open.SetActive(true);
-            sound.SetActive(true);
+           
             /* if(count > 1)
              {
                  item.SetActive(false);
