@@ -15,6 +15,7 @@ public class GageManager : MonoBehaviour
 
     void Update()
     {
+        gage = EndingManager.GageReset();
         gage = MomMove.GageUp();
         if (gage != 0)
         {

@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class EndingManager : MonoBehaviour
 {
+    GameObject gage;
+
     void Start()
     {
         GageManager.gage = 0;
+        for (int i = 1; i < 6; i++)
+        {
+            GageManager.animator.ResetTrigger("level" + i);
+            //Debug.Log(i);
+        }
         GageManager.animator.SetTrigger("GameOver");
     }
 
@@ -20,5 +27,10 @@ public class EndingManager : MonoBehaviour
     public void GameQuit()
     {
         Application.Quit();
+    }
+
+    public static int GageReset()
+    {
+        return GageManager.gage;
     }
 }
