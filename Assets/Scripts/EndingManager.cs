@@ -8,7 +8,7 @@ public class EndingManager : MonoBehaviour
     public void GameRestart()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void GameQuit()
