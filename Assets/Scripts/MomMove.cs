@@ -176,7 +176,7 @@ public class MomMove : MonoBehaviour
         {
             door.SetActive(true);
             door_Open.SetActive(false);
-            momState = MomState.Idle;
+            drowsyMommy.SetActive(false);
         }
     }
 
