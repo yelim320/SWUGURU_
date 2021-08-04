@@ -12,7 +12,7 @@ public class DogMoveInS4 : MonoBehaviour
     public GameObject guru_Target2;
 
     public GameObject player;
-    new Collider2D collider2D;
+    public new Collider2D collider2D;
     float distanceToPlayer;
     bool isTouching = false;
 
@@ -70,7 +70,7 @@ public class DogMoveInS4 : MonoBehaviour
                 return;
             }
 
-            OnTriggerEnter2D(collider2D);
+            //OnTriggerEnter2D(collider2D);
             return;
         }
     }
@@ -152,10 +152,12 @@ public class DogMoveInS4 : MonoBehaviour
         isTouching = true;
         if (distanceToPlayer > 5)
         {
+            //Debug.Log("¹þ¾î³²");
             isTouching = false;
             return;
         }
         StartCoroutine(Bark());
+        dogState = DogState.Move;
     }
 
     IEnumerator Bark()
