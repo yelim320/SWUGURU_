@@ -69,6 +69,7 @@ public class Stage1Ending : MonoBehaviour
 
     IEnumerator makingDough()
     {
+        MomMove.momState = MomMove.MomState.Return;
         yield return new WaitForSeconds(1.9f);
         equip.SetActive(false);
         table.SetActive(true);
@@ -94,6 +95,7 @@ public class Stage1Ending : MonoBehaviour
 
     IEnumerator MoveToKit()
     {
+        MomMove.momState = MomMove.MomState.Idle;
         yield return new WaitForSeconds(2f);
         player.transform.position = Vector3.MoveTowards(player.transform.position, kitPos.position, 10 * Time.deltaTime);
     }
