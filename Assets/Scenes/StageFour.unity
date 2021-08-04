@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5551627877722236356, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5551627877744805839, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56
@@ -480,9 +484,21 @@ PrefabInstance:
       propertyPath: sound
       value: 
       objectReference: {fileID: 1854556824}
+    - target: {fileID: 5551627877832021251, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551627877899267190, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5551627878123111052, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_Name
       value: LFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551627878123111053, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5551627878123111058, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_RootOrder
@@ -528,9 +544,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5551627878176702667, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5551627878439664548, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551627878506557791, guid: 381a97f95637bf144be5b64466379801, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5551627878848725655, guid: 381a97f95637bf144be5b64466379801, type: 3}
       propertyPath: m_LocalScale.x
