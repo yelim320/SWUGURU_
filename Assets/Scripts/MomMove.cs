@@ -88,13 +88,13 @@ public class MomMove : MonoBehaviour
 
         if (currentTime >= MoveTime)
         {
-            currentTime = 0;
             momState = MomState.Move;
         }
     }
 
     void Move()
     {
+        currentTime = 0;
         door.SetActive(false);
         door_Open.SetActive(true);
 
@@ -103,15 +103,12 @@ public class MomMove : MonoBehaviour
          {
             StartCoroutine(Waiting());
             momState = MomState.Detect;
-        }
+         }
 
         if (Vector3.Distance(Target2.position, transform.position) == 0)
         {
             momState = MomState.Wait;
-            print("Move > Wait");
         }
-        
-
     }
 
     void Return()
@@ -154,14 +151,7 @@ public class MomMove : MonoBehaviour
     {
         madMommy.SetActive(true);
 
-        //하트감소UI
-        /*GameObject ggm = GameObject.Find("GageManager");
-        GageManager gManager = ggm.GetComponent< GageManager > ();
-        gManager.Setlevel(gManager.Getlevel() + 1);*/
-
         GageManager.gage++;
-        //Debug.Log(gage);
-        //animator.SetTrigger("level" + gage);
         Debug.Log("애니메이션 실행");
         if (GageManager.gage == 5)
         {
@@ -172,11 +162,7 @@ public class MomMove : MonoBehaviour
             gameOver.SetActive(true);
         }
 
-
         momState = MomState.Idle;
-        door.SetActive(true);
-        door_Open.SetActive(false);
-        
 
     }
 
@@ -189,8 +175,6 @@ public class MomMove : MonoBehaviour
         {
             door.SetActive(true);
             door_Open.SetActive(false);
-            print("총맞음");
-            print("HitWat > Idle");
             momState = MomState.Idle;
         }
     }
@@ -206,6 +190,8 @@ public class MomMove : MonoBehaviour
         PlayerMove.cantControl = false;
         madMommy.SetActive(false);
         drowsyMommy.SetActive(false);
+        door.SetActive(true);
+        door_Open.SetActive(false);
     }
 
     public static int GageUp()

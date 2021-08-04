@@ -158,6 +158,5 @@ public class DogMoveInS4 : MonoBehaviour
         bowWow.Play();
         yield return new WaitForSeconds(1.0f);
         MomMove.momState = MomMove.MomState.Move;
-        Debug.Log("강아지 엄마");
     }
 }
