@@ -149,6 +149,7 @@ public class MomMove : MonoBehaviour
 
     void Detect()
     {
+        currentTime = 0;
         madMommy.SetActive(true);
 
         GageManager.gage++;
