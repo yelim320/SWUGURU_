@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GageManager : MonoBehaviour
 {
-    private Animator animator;
+    public static Animator animator;
     public static int gage = 0;
 
     void Start()

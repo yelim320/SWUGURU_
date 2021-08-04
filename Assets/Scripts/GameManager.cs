@@ -79,8 +79,15 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         player = GameObject.Find("Player");
-        player.transform.position = PlayerMove.playerPos;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.transform.position = new Vector3(-4.5f, -0.5f, -1);
+        for (int i = 1; i < 6; i++)
+        {
+            GageManager.animator.ResetTrigger("level" + i);
+            Debug.Log(i);
+        }
+        GageManager.gage = 0;
+        GageManager.animator.SetTrigger("GameOver");
+        SceneManager.LoadScene(1);
     }
 
     public void GameQuit()
