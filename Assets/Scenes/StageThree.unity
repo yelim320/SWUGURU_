@@ -4559,7 +4559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 76}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1469655949523420653
@@ -5224,8 +5224,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uCF00\uC774\uD06C\uB97C \uC644\uC131\uD558\uAE30 \uC704\uD55C \uC7AC\uB8CC\uB97C
-    \uAC00\uC838\uC624\uC138\uC694\n\n\uD544\uC694\uD55C \uC7AC\uB8CC : \uBE75, \uC0DD\uD06C\uB9BC,
-    \uACFC\uC77C, \uCD08\uCF5C\uB9BF"
+    \uAC00\uC838\uC624\uC138\uC694\n\uBCF8 \uC2A4\uD14C\uC774\uC9C0\uC5D0\uB294 \uC2DC\uACC4
+    \uBAA8\uC591\uC758 \uB9C8\uCDE8\uCD1D\uC774 \uC874\uC7AC\uD569\uB2C8\uB2E4.\n\uB9C8\uCDE8\uCD1D\uC744
+    \uC5BB\uC740 \uD6C4 \uC88C\uD074\uB9AD\uD558\uC5EC \uC0AC\uC6A9\uD558\uBA74\n\uC5C4\uB9C8\uAC00
+    \uBC29\uC73C\uB85C \uB3CC\uC544\uAC00\uAC8C \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\n\uD544\uC694\uD55C
+    \uC7AC\uB8CC : \uBE75, \uC0DD\uD06C\uB9BC, \uACFC\uC77C, \uCD08\uCF5C\uB9BF"
 --- !u!224 &1469655950064268403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5279,7 +5282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 697.5, y: -259}
+  m_AnchoredPosition: {x: 697.5, y: -347}
   m_SizeDelta: {x: 250, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1469655950369136421
@@ -6044,8 +6047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1792, y: 784}
+  m_AnchoredPosition: {x: 0, y: -17.1}
+  m_SizeDelta: {x: 1792, y: 923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1469655950832716181
 GameObject:
