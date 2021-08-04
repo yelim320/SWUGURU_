@@ -12,6 +12,8 @@ public class OutOfRoom : MonoBehaviour
     public GameObject livingRoomPos;
     public Animator transition;
 
+    private AudioSource sound;
+
     //컨트롤러 삽입 스크립트 삽입
 
 
@@ -19,17 +21,17 @@ public class OutOfRoom : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player");
-
+        sound = GetComponent<AudioSource>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("충돌");
-        //애니메이션 플레이
+        sound.Play();
         transition.SetTrigger("Start");
         transition.SetTrigger("End");
         player.transform.position = new Vector3(-11, -3, -1);
         cam.transform.position = new Vector3(livingRoomPos.transform.position.x, livingRoomPos.transform.position.y, cam.transform.position.z);
-    }
 
+    }
 }

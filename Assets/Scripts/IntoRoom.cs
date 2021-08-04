@@ -11,16 +11,20 @@ public class IntoRoom : MonoBehaviour
     public GameObject myRoomPos;
     public Animator transition;
 
+    private AudioSource door;
+
     //컨트롤러 삽입 스크립트 삽입
 
     private void Awake()
     {
         player = GameObject.Find("Player");
+        door = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         print("충돌");
+        door.Play();
         transition.SetTrigger("Start");
         transition.SetTrigger("End");
         player.transform.position = new Vector3(-7, -3, -1);
