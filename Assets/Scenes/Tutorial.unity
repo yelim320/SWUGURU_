@@ -2461,13 +2461,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 468932723418572648, guid: d1a861ae3d4cae249aca6a7443bf94cd, type: 3}
       propertyPath: m_Text
-      value: "\uCF00\uC774\uD06C \uB9CC\uB4E4\uAE30\uB97C \uC704\uD574 \uC81C\uBE75\uB3C4\uAD6C\uB97C
+      value: "\uCF00\uC774\uD06C\uB97C \uB9CC\uB4E4\uAE30 \uC704\uD574 \uC81C\uBE75\uB3C4\uAD6C\uB97C
         \uBAA8\uC544\uBD05\uC2DC\uB2E4\n\uC544\uC774\uD15C\uC744 \uD68D\uB4DD\uD55C
-        \uD6C4, \n\uBC29 \uAC00\uC6B4\uB370 \uD14C\uC774\uBE14\uC758 \uC88C\uC6B0\uC5D0
+        \uD6C4, \n\uBC29 \uAC00\uC6B4\uB370 \uD14C\uC774\uBE14\uC758 \uC88C/\uC6B0\uC5D0
         \uC11C\uC11C\n\uC8FC\uBA38\uB2C8\uC758 \uC544\uC774\uD15C\uC744 \uB9C8\uC6B0\uC2A4
         \uC6B0\uD074\uB9AD\uC73C\uB85C \uBE7C\uB0C5\uB2C8\uB2E4\n\n\uD544\uC694\uD55C
-        \uC7AC\uB8CC : \uBE75\uD310, \uAC70\uD488\uAE30, \uC0DD\uD06C\uB9BC\uC8FC\uAC71,
-        \uBC18\uC8FD\uADF8\uB987, \uC624\uBE10\uC7A5\uAC11"
+        \uC7AC\uB8CC : \uB3C4\uB9C8, \uAC70\uD488\uAE30, \uC0DD\uD06C\uB9BC\uC8FC\uAC71,
+        \n                 \uBC18\uC8FD\uADF8\uB987, \uC624\uBE10\uC7A5\uAC11"
       objectReference: {fileID: 0}
     - target: {fileID: 468932723418572648, guid: d1a861ae3d4cae249aca6a7443bf94cd, type: 3}
       propertyPath: m_FontData.m_MaxSize
