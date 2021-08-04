@@ -7,6 +7,7 @@ public class Refrigerator : MonoBehaviour
 {
     public GameObject re_Open;
     public GameObject item;
+    public GameObject sound;
     private GameObject UIinventory;
     private GameObject PlayerItem;
     private GameObject textUI;
@@ -30,12 +31,13 @@ public class Refrigerator : MonoBehaviour
             Debug.Log("마우스 클릭");
             gameObject.SetActive(false);
             re_Open.SetActive(true);
-           /* if(count > 1)
-            {
-                item.SetActive(false);
-            }
-            else*/
-                item.SetActive(true);
+            sound.SetActive(true);
+            /* if(count > 1)
+             {
+                 item.SetActive(false);
+             }
+             else*/
+            item.SetActive(true);
 
 
             /*if(inventory.itemList.Count == 5)

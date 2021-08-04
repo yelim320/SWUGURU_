@@ -1904,8 +1904,8 @@ MonoBehaviour:
   textobject: {fileID: 565096712}
   momgage: {fileID: 0}
   gameOver: {fileID: 1960949134}
-  success: {fileID: 0}
-  failure: {fileID: 0}
+  success: {fileID: 161168870}
+  failure: {fileID: 148529405}
 --- !u!212 &956002490
 SpriteRenderer:
   m_ObjectHideFlags: 0
