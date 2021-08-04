@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 521975129}
   - component: {fileID: 521975133}
   - component: {fileID: 521975130}
+  - component: {fileID: 521975134}
   m_Layer: 8
   m_Name: Dog
   m_TagString: Untagged
@@ -830,7 +831,27 @@ MonoBehaviour:
   guru_Target1: {fileID: 2056986530}
   guru_Target2: {fileID: 402789196}
   player: {fileID: 1097453111}
+  collider2D: {fileID: 1097453113}
   doghouse: {fileID: 459320063}
+--- !u!95 &521975134
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521975128}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8968cf8911f2ec24cbdc84206f66c522, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &565710634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 1469655949215489975}
   dog: {fileID: 521975128}
-  mom: {fileID: 0}
+  mom: {fileID: 1118973971}
 --- !u!212 &1097453116
 SpriteRenderer:
   m_ObjectHideFlags: 0
