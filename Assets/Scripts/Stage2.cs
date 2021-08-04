@@ -22,13 +22,14 @@ public class Stage2 : MonoBehaviour
 
     public GameObject gameOver;
     public GameObject success;
-    public GameObject failure;
+    public AudioSource failure;
 
     // Start is called before the first frame update
     void Start()
     {
         point = GameObject.Find("Point");
         animator = momgage.GetComponent<Animator>();
+        failure = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class Stage2 : MonoBehaviour
             {
                 //print("실패");
                 //엄마 게이지 올라가기
-                failure.SetActive(true);
+                failure.Play();
                 GageManager.gage++;
 
                 if (GageManager.gage == 5)
