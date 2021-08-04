@@ -54,7 +54,8 @@ public class PlayerItem : MonoBehaviour
             case Items.ItemType.DogSnack:
                 inventory.RemoveItem(item);
                 //inventory.RemoveItem(new Items { itemType = Items.ItemType.DogSnack, amount = 1 });
-                DogMove.dogState = DogMove.DogState.GetSnack;
+                //DogMove.dogState = DogMove.DogState.GetSnack;
+                DogMoveInS4.dogState = DogMoveInS4.DogState.GetSnack;
                 break;
         }
     }

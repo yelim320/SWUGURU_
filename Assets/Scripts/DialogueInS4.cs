@@ -18,7 +18,6 @@ public class DialogueInS4 : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        PlayerMove.cantControl = true;
     }
 
     void Update()
@@ -26,6 +25,7 @@ public class DialogueInS4 : MonoBehaviour
         if(player.transform.position.x < -10 && !Opened)
         {
             Opened = true;
+            PlayerMove.cantControl = true;
             StartDialogue(dialogue);
         }
     }

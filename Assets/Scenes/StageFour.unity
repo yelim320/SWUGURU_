@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c784b4c7d589bf4baed44d1e078d368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearcondition: 5
+  clearcondition: 4
   textobject: {fileID: 1469655949207024057}
 --- !u!1 &402789196
 GameObject:
@@ -930,6 +930,7 @@ MonoBehaviour:
   player: {fileID: 1097453111}
   collider2D: {fileID: 1097453113}
   doghouse: {fileID: 459320063}
+  dogInHouse: {fileID: 789718410}
 --- !u!95 &521975134
 Animator:
   serializedVersion: 3
@@ -980,6 +981,7 @@ Transform:
   - {fileID: 1497681164}
   - {fileID: 492309439}
   - {fileID: 1892280113}
+  - {fileID: 655909518}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1048,6 +1050,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &655909517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655909518}
+  - component: {fileID: 655909520}
+  - component: {fileID: 655909519}
+  m_Layer: 0
+  m_Name: ItemWorldSpawner_DogSnack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &655909518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655909517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.75, y: 1.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 565710635}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &655909519
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655909517}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6b673b9d0d3ec62459f834732deae65c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.28, y: 1.28}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &655909520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655909517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84df358430d04fb4b9424a75e36b15cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    itemType: 12
+    amount: 0
 --- !u!1 &672934792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1337,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!1 &789718410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5551627877469329554, guid: 381a97f95637bf144be5b64466379801, type: 3}
+  m_PrefabInstance: {fileID: 459320062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &862272054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1515,8 @@ MonoBehaviour:
     - "\uAD6C\uB8E8\uAC00 \uCF00\uC774\uD06C \uB0C4\uC0C8\uB97C \uB9E1\uACE0 \uD765\uBD84\uD588\uB098\uBD10!"
     - "\uAD6C\uB8E8\uAC00 \uB3CC\uC544\uB2E4\uB2C8\uACE0 \uC788\uC73C\uB2C8 \uBD80\uB52A\uD788\uC9C0
       \uC54A\uB3C4\uB85D \uC870\uC2EC\uD558\uC790."
+    - "\uB0C9\uC7A5\uACE0\uC5D0 \uC788\uB294 \uAC04\uC2DD\uC744 \uC0AC\uC6A9\uD558\uBA74
+      \uAD6C\uB8E8\uB97C \uC9C4\uC815\uC2DC\uD0AC \uC218\uB3C4 \uC788\uC744\uAC70\uC57C."
   animator: {fileID: 139792394}
 --- !u!4 &925851840
 Transform:
@@ -1921,7 +2028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   re_Open: {fileID: 750491026}
-  item: {fileID: 1892280112}
+  item: {fileID: 655909517}
 --- !u!61 &1315283899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2417,7 +2524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1892280113
 Transform:
   m_ObjectHideFlags: 0
@@ -2426,7 +2533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892280112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.63, y: 1.45, z: 0}
+  m_LocalPosition: {x: -20.83, y: -4.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 565710635}
